@@ -10,7 +10,7 @@ inquirer
 .prompt(
   {
       type: "input",
-      message: "What is Github Username?",
+      message: "What is your Github Username?",
       name: "github"
   }
  ).then(function(response) {
@@ -21,11 +21,11 @@ inquirer
   axios.get(gitUrl)
     .then(function (response) {
       // handle success
-      // console.log(response.data.avatar_url);
+      // console.log(response.data.avatar_url); 
       // console.log(response.data.email);
 
       fs.appendFile("GeneratedREADME.md", 
-`## Email: ${response.data.email}
+`## ## Email: ${response.data.email}
 !["Id Picture"](${response.data.avatar_url})
 `, 
       function(err){
@@ -38,8 +38,7 @@ inquirer
       });
     })
     });
-
-    }
+  }
   };
 
 module.exports = api;

@@ -1,15 +1,16 @@
 var api= require('./utils/api.js');
 var generateMarkdown = require('./utils/generateMarkdown.js');
-const questions = [
 
-];
+function writeToFile() {
+api.getUser();
 
-function writeToFile(fileName, data) {
 }
 
 function init() {
-api.getUser();
-}
+ generateMarkdown();
+
+writeToFile();
+};
 
 init();
 
