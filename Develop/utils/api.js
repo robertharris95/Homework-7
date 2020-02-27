@@ -21,8 +21,7 @@ inquirer
   axios.get(gitUrl)
     .then(function (response) {
       // handle success
-      // console.log(response.data.avatar_url); 
-      // console.log(response.data.email);
+     
 
       fs.appendFile("GeneratedREADME.md", 
 `## ## Email: ${response.data.email}
