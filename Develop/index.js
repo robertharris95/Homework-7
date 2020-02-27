@@ -1,20 +1,7 @@
-var api= require('./utils/api.js');
+var util = require('util')
 var generateMarkdown = require('./utils/generateMarkdown.js');
+var generateMarkdownPromise = util.promisify(generateMarkdown)
 
-function writeToFile() {
-api.getUser();
-
-}
-
-function init() {
- generateMarkdown();
-
-writeToFile();
-};
-
-init();
+ generateMarkdownPromise();
 
 
-    
-
-  

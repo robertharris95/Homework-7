@@ -1,9 +1,9 @@
 var inquirer = require('inquirer');
 var fs = require('fs');
-
+var api= require('./api.js');
 function generateMarkdown() {
-  inquirer
-  .prompt(
+inquirer
+  .prompt([
     {
       type: "input",
       message: "What is your Project title?",
@@ -51,49 +51,48 @@ function generateMarkdown() {
     },
     
 
-   ).then(function(response){
-  fs.appendFile("GeneratedREADME.md",
-  `
+  ]).then(function(response){
+     var data= `
 # ${response.title}
-
+     
 ## ##Description
 ${response.description}
-
+     
 ## ##Installation
 ${response.install}
 
 ## ##Usage
 ${response.usage}
-
+     
 ## ##Credits
 ${response.credits}
-
+     
 ## ##Licenses
 ${response.license}
-
+     
 ## ##Guide to Contributing
 ${response.contributing}
-
+     
 ## ##Tests
 ${response.tests}
-
+     
 ## ##Badges
 ${response.badges}
-
+     
 ## ##Questions
-
+     
 ### If you have questions, please contact the creator at:
+     
+`
+  fs.appendFile("GeneratedREADME.md",data,function(err){
 
-
-`,
-function(err){
   if(err){
-    return console.log("There was an error, please try again")
-}
-  else{
-    return console.log("User Info Added!")
+    throw err
 }
 })
+//run function to get api info and display it
+}).then(function(){
+  api.getUser();
 });
 };
 module.exports = generateMarkdown

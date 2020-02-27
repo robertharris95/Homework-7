@@ -33,7 +33,7 @@ inquirer
           return console.log("There was an error, please try again")
       }
         else{
-          return console.log("User Info Added!")
+          return console.log("README Generated")
       }
       });
     })
