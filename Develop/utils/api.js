@@ -24,7 +24,7 @@ inquirer
      
 
       fs.appendFile("GeneratedREADME.md", 
-`## ## Email: ${response.data.email}
+`## ## Email: ${response.data.email ? response.data.email : "This user has an email that is set to private"}
 !["Id Picture"](${response.data.avatar_url})
 `, 
       function(err){
